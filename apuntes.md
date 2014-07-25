@@ -1,6 +1,6 @@
-/*********************************\
+
 	APUNTES DE GIT
-\*********************************/
+=======================
 
 1. INSTALACIÓN Y CONFIGURACION INICIAL
 2. AREAS INTERNAS DE GIT
@@ -13,7 +13,7 @@
 ======================================
 Descargamos e instalamos git en nuestro ordenador
 
-http://git-scm.com/downloads [link](http://git-scm.com/downloads)
+http://git-scm.com/downloads 
 
 Una vez instalado git realizamos la configuración inicial:
 
@@ -30,15 +30,19 @@ Las areas de git se dividen en 2 grupos:
 * Remoto (servidor remoto bien sea en una lan como en internet)
 
 Dentro de local hay cuatro subareas:
+
 1. Stash.
 2. Working area.
 3. Index / Staging area.
 4. Local Repository.
 
-**Stash**: Zona temporal donde podemos guardar archivos sin que se añadan al index al hacer comit. (Hablaremos con mas detalle mas adelante).
-**Working area**: Zona de trabajo habitual. En esta zona es donde creamos, modificamos o borramos los archivos de nuestro directorio.
-**Index / Staging area**: Zona donde se guardan las modificaciones realizadas en el Working area, para posteriormente guardarlas en el repositorio
-**Local Repository**: Zona donde se guarda nuestro proyecto, con un control de las modificaciones que se han realizado.
+* **Stash**: Zona temporal donde podemos guardar archivos sin que se añadan al index al hacer comit. (Hablaremos con mas detalle mas adelante).
+
+* **Working area**: Zona de trabajo habitual. En esta zona es donde creamos, modificamos o borramos los archivos de nuestro directorio.
+
+* **Index / Staging area**: Zona donde se guardan las modificaciones realizadas en el Working area, para posteriormente guardarlas en el repositorio.
+
+* **Local Repository**: Zona donde se guarda nuestro proyecto, con un control de las modificaciones que se han realizado.
 
 Dentro de remoto solo hay una subarea: **Upstream repository**.
 
@@ -62,12 +66,15 @@ Para poder trabajar en Git hay que tener un concepto claro. Cada vez que hacemos
 Abrimos el $bash y nos dirigimos al directorio donde queremos crear nuestro primer repositorio.
 
 Creamos un directorio nuevo:
+
 	$ mkdir primerRepositorio
 
-nos posicionamos dentro del directorio nuevo
+Nos posicionamos dentro del directorio nuevo:
+
 	$ cd primerRepositorio
 
-inicializamos el repositorio
+Inicializamos el repositorio:
+
 	$ git init
 
 WORKING AREA
@@ -75,10 +82,11 @@ WORKING AREA
 
 creamos el archivo readme.md
 
-	$ echo "descripción del repositorio" > readme.md
+	$ echo "Descripción del repositorio" > readme.md
 
 INDEX AREA
 ----------
+
 	$ git add . (el . es equivalente a * y sirve para seleccionar TODOS los archivos modificados.)
 
 LOCAL REPOSITORY
@@ -90,41 +98,44 @@ LOCAL REPOSITORY
 4. COMANDOS DE GIT
 ==================
 
-comandos de información
+Comandos de información
 -----------------------
 
-$ git status : muestra en que rama estamos y que ficheros han sido modificados.
+$ git status : Muestra en que rama estamos y que ficheros han sido modificados.
 
-$ git log: muestra la lista de commits realizados, quien es el autor de este, la fecha del commit y el comentario.
+$ git log: Muestra la lista de commits realizados, quien es el autor de este, la fecha del commit y el comentario.
 
-$ git log --oneline: log mas compactor. Muestra en una sola linea el identificador del commit y el comentario.
+$ git log --oneline: Muestra un log mas compacto. Muestra en una sola línea el identificador del commit y el comentario.
 
-$ git log --oneline --decorate: muestra un grafico con las ramas del repositorio ( veremos las ramas mas adelante)
+$ git log --oneline --decorate: Muestra un gráfico con las ramas del repositorio ( veremos las ramas mas adelante)
 
 
 De working area a Staging area
 ------------------------------
 
 	$ git add <filename>
-	$ git add . 		(el . es equivalente a * y sirve para seleccionar TODOS los archivos modificados.)
+	$ git add . 		
 	$ git add *.c
 	$ git add index.html
 
 	$ git add <directory>
 
+el . es equivalente a * y sirve para seleccionar TODOS los archivos modificados.
 
 De Staging area a Working area
 ------------------------------
 
-# antes del primer commit
+Antes del primer commit
 	$ git rm --cached <filename>
 
-# después del primer commit
+Después del primer commit
 	$ gir rm HEAD <filename>
 
 De Staging area a Local repository
 ----------------------------------
-	$ git commit -m "comentario de las modificaciones" (si no ponemos el comentario se abrirá el editor VIM para obligarnos a poner uno)
+	$ git commit -m "comentario de las modificaciones" 
+
+	si no ponemos el comentario se abrirá el editor VIM para obligarnos a poner uno
 
 
 De Working area a Local repository (sin pasar por staging area)
