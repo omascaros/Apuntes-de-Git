@@ -13,7 +13,7 @@
 ======================================
 Descargamos e instalamos git en nuestro ordenador
 
-[link](http://git-scm.com/downloads)
+http://git-scm.com/downloads [link](http://git-scm.com/downloads)
 
 Una vez instalado git realizamos la configuración inicial:
 
@@ -75,15 +75,11 @@ WORKING AREA
 
 creamos el archivo readme.md
 
-	$ echo "descripcion del repositorio" > readme.md
+	$ echo "descripción del repositorio" > readme.md
 
 INDEX AREA
 ----------
 	$ git add . (el . es equivalente a * y sirve para seleccionar TODOS los archivos modificados.)
-
-	   ó
-
-	$ git add readme.md (tambien podemos elegir el fichero que queremos enviar al repositorio)
 
 LOCAL REPOSITORY
 ----------------
@@ -106,19 +102,19 @@ $ git log --oneline: log mas compactor. Muestra en una sola linea el identificad
 $ git log --oneline --decorate: muestra un grafico con las ramas del repositorio ( veremos las ramas mas adelante)
 
 
-working area -> staging area
-----------------------------
+De working area a Staging area
+------------------------------
 
 	$ git add <filename>
-	$ git add .
+	$ git add . 		(el . es equivalente a * y sirve para seleccionar TODOS los archivos modificados.)
 	$ git add *.c
 	$ git add index.html
 
 	$ git add <directory>
-	
 
-staging area -> working area
-----------------------------
+
+De Staging area a Working area
+------------------------------
 
 # antes del primer commit
 	$ git rm --cached <filename>
@@ -126,9 +122,13 @@ staging area -> working area
 # después del primer commit
 	$ gir rm HEAD <filename>
 
+De Staging area a Local repository
+----------------------------------
+	$ git commit -m "comentario de las modificaciones" (si no ponemos el comentario se abrirá el editor VIM para obligarnos a poner uno)
 
-working area -> local repository
---------------------------------
+
+De Working area a Local repository (sin pasar por staging area)
+---------------------------------------------------------------
 
 El archivo debe haver sido procesado ya por el repositorio.
 
