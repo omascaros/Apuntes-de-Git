@@ -10,7 +10,7 @@
 
 
 
-1. INSTALACIÓN Y CONFIGURACION INICIAL
+1. INSTALACIÓN Y CONFIGURACIÓN INICIAL
 ======================================
 Descargamos e instalamos git en nuestro ordenador
 
@@ -27,12 +27,12 @@ Una vez instalado git realizamos la configuración inicial:
 2. AREAS INTERNAS DE GIT
 ========================
 
-Las areas de git se dividen en 2 grupos:
+Las áreas de git se dividen en 2 grupos:
 
 * Local (dentro de nuestro disco duro)
 * Remoto (servidor remoto bien sea en una lan, como en internet)
 
-Dentro de local hay cuatro subareas:
+Dentro de local hay cuatro subáreas:
 
 1. Stash.
 2. Workspace / Working area.
@@ -48,21 +48,25 @@ Dentro de local hay cuatro subareas:
 
 4. **Local Repository**: Zona donde se guarda nuestro proyecto, con un control de las modificaciones que se han realizado.
 
-Dentro de remoto solo hay una subarea: **Upstream repository**.
+Dentro de remoto solo hay una subárea: **Upstream repository**.
 
 
-Gráfico de las areas de Git:
-----------------------------
+  | ** STASH **
+L | 
+O | ** WORKSPACE **
+C | 
+A | ** INDEX **
+L |
+  | ** LOCAL REPOSITORY **
 
-|___________________________  LOCAL _____________________________||_________ REMOTO _________|
-_____________ _______________ ___________ ______________________ ||  _________________________
-|   STASH   | |  WORKSPACE  | |  INDEX  | |  LOCAL REPOSITORY  | ||  |  UPSTREAM REPOSITORY  |
-|___________| |_____________| |_________| |____________________| ||  |_______________________|
-                                                                 ||							
-						--------> 
-							$ git add
-									--------> $ git commit
-
+  |
+R |
+E |
+M | ** UPSTREAM REPOSITORY **
+O |
+T |
+O |									
+  |
 
 Aclaración importante:
 ----------------------
