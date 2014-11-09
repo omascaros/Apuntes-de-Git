@@ -40,33 +40,22 @@ Dentro de local hay cuatro subáreas:
 4. Local Repository.
 
 
-1. **Stash**: Zona temporal donde podemos guardar archivos sin que se añadan al index al hacer comit. (Hablaremos con mas detalle mas adelante).
+* **Stash**: Zona temporal donde podemos guardar archivos sin que se añadan al index al hacer comit. (Hablaremos con mas detalle mas adelante).
 
-2. **Working area**: Zona de trabajo habitual. En esta zona es donde creamos, modificamos o borramos los archivos de nuestro directorio.
+* **Working area**: Zona de trabajo habitual. En esta zona es donde creamos, modificamos o borramos los archivos de nuestro directorio.
 
-3. **Index / Staging area**: Zona donde se guardan las modificaciones realizadas en el Working area, para posteriormente guardarlas en el repositorio.
+* **Index / Staging area**: Zona donde se guardan las modificaciones realizadas en el Working area, para posteriormente guardarlas en el repositorio.
 
-4. **Local Repository**: Zona donde se guarda nuestro proyecto, con un control de las modificaciones que se han realizado.
+* **Local Repository**: Zona donde se guarda nuestro proyecto, con un control de las modificaciones que se han realizado.
 
 Dentro de remoto solo hay una subárea: **Upstream repository**.
 
++----------------------------------------------+---------------------+
+|					LOCAL					   | 	REMOTE		     |
++-------+-----------+-------+------------------+---------------------+
+| STASH | WORKSPACE | INDEX | LOCAL REPOSITORY | UPSTREAM REPOSITORY |
++-------+-----------+-------+------------------+---------------------+
 
-  | ** STASH **
-L | 
-O | ** WORKSPACE **
-C | 
-A | ** INDEX **
-L |
-  | ** LOCAL REPOSITORY **
-
-  |
-R |
-E |
-M | ** UPSTREAM REPOSITORY **
-O |
-T |
-O |									
-  |
 
 Aclaración importante:
 ----------------------
