@@ -9,16 +9,19 @@
 
 
 
+
 1. INSTALACIÓN Y CONFIGURACION INICIAL
 ======================================
 Descargamos e instalamos git en nuestro ordenador
 
-http://git-scm.com/downloads 
+	http://git-scm.com/downloads 
 
 Una vez instalado git realizamos la configuración inicial:
 
 	$ git config --global user.name "Your Name Here"
 	$ git config --global user.email "your_email@example.com"
+
+
 
 
 2. AREAS INTERNAS DE GIT
@@ -27,38 +30,51 @@ Una vez instalado git realizamos la configuración inicial:
 Las areas de git se dividen en 2 grupos:
 
 * Local (dentro de nuestro disco duro)
-* Remoto (servidor remoto bien sea en una lan como en internet)
+* Remoto (servidor remoto bien sea en una lan, como en internet)
 
 Dentro de local hay cuatro subareas:
 
 1. Stash.
-2. Working area.
+2. Workspace / Working area.
 3. Index / Staging area.
 4. Local Repository.
 
-* **Stash**: Zona temporal donde podemos guardar archivos sin que se añadan al index al hacer comit. (Hablaremos con mas detalle mas adelante).
 
-* **Working area**: Zona de trabajo habitual. En esta zona es donde creamos, modificamos o borramos los archivos de nuestro directorio.
+1. **Stash**: Zona temporal donde podemos guardar archivos sin que se añadan al index al hacer comit. (Hablaremos con mas detalle mas adelante).
 
-* **Index / Staging area**: Zona donde se guardan las modificaciones realizadas en el Working area, para posteriormente guardarlas en el repositorio.
+2. **Working area**: Zona de trabajo habitual. En esta zona es donde creamos, modificamos o borramos los archivos de nuestro directorio.
 
-* **Local Repository**: Zona donde se guarda nuestro proyecto, con un control de las modificaciones que se han realizado.
+3. **Index / Staging area**: Zona donde se guardan las modificaciones realizadas en el Working area, para posteriormente guardarlas en el repositorio.
+
+4. **Local Repository**: Zona donde se guarda nuestro proyecto, con un control de las modificaciones que se han realizado.
 
 Dentro de remoto solo hay una subarea: **Upstream repository**.
 
-Para poder trabajar en Git hay que tener un concepto claro. Cada vez que hacemos $ git commit... (paso de index a local repository)no estamos guardando en el local repository los archivos, sino que en cada commit se guardan las MODIFICACIONES realizadas en cada uno de los archivos.
 
-					/---------------------------------\
-			|---	|		 WORKING DIRECTORY		  |
-					\---------------------------------/
-		$ git add
-					/---------------------------------\
-			|-->	|			STAGING AREA          |        --|
-					\---------------------------------/
-															$ git commit
-					/---------------------------------\			 
-					|			REPOSITORY            |		  <--|
-					\---------------------------------/
+Gráfico de las areas de Git:
+----------------------------
+
+|___________________________  LOCAL _____________________________||_________ REMOTO _________|
+                                                                 ||
+_____________ _______________ ___________ ______________________ ||  _________________________
+|   STASH   | |	 WORKSPACE  | |  INDEX  | |  LOCAL REPOSITORY  | ||  |  UPSTREAM REPOSITORY  |
+|           | |             | |         | |                    | ||  |                       |
+|           | |             | |         | |                    | ||  |                       |
+|           | |             | |         | |                    | ||  |                       |
+|           | |             | |         | |                    | ||  |                       |
+|           | |             | |         | |                    | ||  |                       |
+|___________| |_____________| |_________| |____________________| ||  |_______________________|
+                                                                 ||							
+						--------> 
+							$ git add
+									--------> $ git commit
+
+
+Aclaración importante:
+----------------------
+Para poder trabajar con Git hay que tener un concepto claro. Cada vez que hacemos $ git commit... (paso de Index a Local Repository)no estamos guardando los archivos, sino que en cada commit se guardan las MODIFICACIONES realizadas en cada uno de los archivos.
+
+
 
 
 3. PRIMER REPOSITORIO
@@ -77,22 +93,32 @@ Inicializamos el repositorio:
 
 	$ git init
 
+(Si nos equivocamos más adelante y volvemos a realizar un git init, no pasa nada ni se borra nada)
+
+Para asegurarnos que se ha inicializado correctamente, lanzamos el comando de listado:
+
+	$ ls -la
+
+(si se ha inicializado correctamente nos aparecerá un fichero con el nombre .git)
+
 WORKING AREA
 ------------
 
-creamos el archivo readme.md
+Creamos el archivo readme.md
 
 	$ echo "Descripción del repositorio" > readme.md
 
-INDEX AREA
-----------
+WORKING AREA --> INDEX AREA
+---------------------------
 
-	$ git add . (el . es equivalente a * y sirve para seleccionar TODOS los archivos modificados.)
+	$ git add . (el '.' es equivalente a '*' y sirve para seleccionar TODOS los archivos modificados.)
 
-LOCAL REPOSITORY
-----------------
+INDEX AREA --> LOCAL REPOSITORY
+-------------------------------
 
-	$ git -m "Comentario referente a las modificaciones realizadas"
+	$ git commit -m "Comentario referente a las modificaciones realizadas"
+
+
 
 
 4. COMANDOS DE GIT
@@ -107,7 +133,7 @@ $ git log: Muestra la lista de commits realizados, quien es el autor de este, la
 
 $ git log --oneline: Muestra un log mas compacto. Muestra en una sola línea el identificador del commit y el comentario.
 
-$ git log --oneline --decorate: Muestra un gráfico con las ramas del repositorio ( veremos las ramas mas adelante)
+$ git log --oneline --decorate --graph: Muestra un gráfico con las ramas del repositorio ( veremos las ramas mas adelante)
 
 
 De working area a Staging area
